@@ -4,6 +4,7 @@ public class Calorie {
 
 	public static void main(String[] args) {
 		int num = 0;
+		
 		Scanner input = new Scanner(System.in);
 		
 		while(num != 5) {
@@ -40,21 +41,23 @@ public class Calorie {
 		System.out.print(66.47+(13.75*weight) +5*height-(6.76*age) + "kcal가 당신의 기초대사량입니다.");
 		double a =66.47+(13.75*weight) +5*height-(6.76*age);
 		System.out.println("***  오늘 아침 식단 ***");
-		System.out.println("1.몬스터와퍼세트");
-		System.out.println("2.짜장면 +탕수육");
-		System.out.println("3.도미노피자(블랙앵거스 스테이크)");
-		System.out.println("4.집밥");
-		System.out.println("5.삶은 계란 2개 + 우유");
-		System.out.println("6.라면");
-		System.out.println("7.굶음");
+		System.out.println("1.집밥"); //549
+		System.out.println("2.굶음"); //0
+		int morning = input.nextInt();
+		System.out.println("***  오늘 점심 식단 ***");
+		diet();
+		int lunch = input.nextInt();
+		System.out.println("***  오늘 저녁 식단 ***");
+		diet();
+		int dinner = input.nextInt();
 		
 	}
 		
 	public static void deletecalorie() {
-		//나중에 먹은 음식들을 추가하면 음식들을 삭제한다.
+		addcalorie();
 	}
 	public static void edit() {
-		Scanner input = new Scanner(System.in);
+		Scanner input = new Scanner(System.in); //사용자의 신체정보 수정
 		System.out.println("사용자의 나이:  ");
 		double age = input.nextDouble();
 		System.out.println("신장(cm): ");
@@ -72,4 +75,14 @@ public class Calorie {
 		edit();
 		
 	}
+	public static void diet() {
+		System.out.println("1.몬스터와퍼세트");//1490
+		System.out.println("2.짜장면 +탕수육");//1200
+		System.out.println("3.도미노피자(블랙앵거스 스테이크)");
+		System.out.println("4.집밥");//500
+		System.out.println("5.삶은 계란 2개 + 우유"); //450
+		System.out.println("6.라면"); //500
+		System.out.println("7.굶음"); //0
+	}
+	
 }
