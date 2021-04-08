@@ -1,21 +1,39 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import test.Stat;
+import test.StatAmeric;
 
 public class CalorieManager {
 	Scanner input;
-	Stat stat;
+	ArrayList<Stat> stats=new ArrayList<Stat>();
 	CalorieManager(Scanner input){
 		this.input = input;
 	}
 	public void addcalorie() {
-		stat = new Stat();
-		System.out.println("사용자의 이름:");
-		stat.name=input.next();
-		System.out.println("사용자의 나이:");
-		stat.age=input.nextInt();
-		System.out.println("신장(cm):");
-		stat.height=input.nextDouble();
-		System.out.println("몸무게(kg):");
-		stat.weight=input.nextDouble();
+		int unit=0;
+		Stat stat;
+		while(unit !=1 && unit != 2) {
+			System.out.println("1 for Kor(cm,kg)");
+			System.out.println("2 for Americ(feet,lb)");
+			System.out.println("Select unit between 1 and 2:");
+			unit = input.nextInt();
+			if (unit==1) {
+				stat = new Stat();
+				stat.getUserInput(input);
+				stats.add(stat);
+				break;
+			}
+			else if(unit==2) {
+				stat = new StatAmeric();
+				stat.getUserInput(input);
+				stats.add(stat);
+				break;
+			}
+			else {
+				System.out.println("Select unit between 1 and 2:");
+			}
+		}
 		System.out.println("***  오늘 아침 식단 ***");
 		System.out.println("1.집밥"); 
 		System.out.println("2.굶음"); 
@@ -84,40 +102,53 @@ public class CalorieManager {
 		System.out.println("저녁에 섭취한 칼로리를 입력하세요");
 		int d = input.nextInt();
 		System.out.println("총 섭취한 칼로리 양입니다: " + (m+l+d));
+		
 		}
 		
-	public void deletecalorie() {
+	public void deleteuser() {
 		System.out.println("users name:");	
 		String name = input.next();
-		if(stat == null) {
+		int index=-1;	
+		for(int i=0; i<stats.size(); i++) {
+			if(stats.get(i).getName().equals(name)) {
+				index = i;
+				break;	
+			}	
+		}
+		if(index>=0) {
+			stats.remove(index);
+			System.out.println(name+ " is deleted");
+		}
+		
+		else{
 			System.out.println("your stats have not been registerd");
 			return;
 		}
-		if(stat.name.equals(name)) {
-			stat = null;
-			System.out.println("your stats are deleted");
-		}
+		
 	}
 	public void edit() {
 		System.out.print("users name:");
 		String name = input.next();
-		if(stat.name.equals(name)) {
-			System.out.println("신장(cm):");
-			stat.height=input.nextDouble();
-			System.out.println("몸무게(kg):");
-			stat.weight=input.nextDouble();
-			System.out.println("edit: " +stat.height +" cm "+ stat.weight +" kg");
+		for(int i=0; i<stats.size(); i++) {
+			Stat stat = new Stat();
+			if(stat.getName().equals(name)) {
+				System.out.println("신장:");
+				double height=input.nextDouble();
+				stat.setHeight(height);
+				System.out.println("몸무게:");
+				double weight=input.nextDouble();
+				stat.setWeight(weight);
+				System.out.println("edit: " +height +" cm "+weight +" kg");
+			}
+		break;	
 		}
 	}
-	public void view() {
-		System.out.println("users name:");
-		String name = input.next();
-		if(stat.name.equals(name)) {
-			stat.printinfo();
+	public void viewStats() {
+		for(int i=0; i<stats.size(); i++) {
+			stats.get(i).printinfo();
 		}
 	}
-		
-		
+	
 	public static void diet() {
 		System.out.println("1.몬스터와퍼세트");
 		System.out.println("2.짜장면 +탕수육");
@@ -127,6 +158,7 @@ public class CalorieManager {
 		System.out.println("6.라면"); 
 		System.out.println("7.굶음"); 
 	}
+	
 
 }
 	
