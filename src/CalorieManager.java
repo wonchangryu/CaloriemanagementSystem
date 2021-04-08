@@ -78,7 +78,6 @@ public class CalorieManager {
 		diet();
 		int dinner = input.nextInt();
 		if(dinner==1) {
-		
 			System.out.println("1400kcal입니다");
 		}
 		else if(dinner==2) {
@@ -131,6 +130,7 @@ public class CalorieManager {
 		String name = input.next();
 		for(int i=0; i<stats.size(); i++) {
 			Stat stat = new Stat();
+			stat.setName(name);
 			if(stat.getName().equals(name)) {
 				System.out.println("신장:");
 				double height=input.nextDouble();
@@ -138,7 +138,7 @@ public class CalorieManager {
 				System.out.println("몸무게:");
 				double weight=input.nextDouble();
 				stat.setWeight(weight);
-				System.out.println("edit: " +height +" cm "+weight +" kg");
+				System.out.println("edit:" +" height= "+ height + " weight= "+weight);
 			}
 		break;	
 		}

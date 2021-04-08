@@ -1,55 +1,41 @@
 package test;
-
 import java.util.Scanner;
-
 public class Stat {
 	public Stat() {
-
 	}
-
 	public Stat(String name,int age,double height ,double weight) {
 		this.name = name;
 		this.weight=weight;
 		this.height=height;
 		this.age=age;
 	}
-
 	public Statunit getUnit() {
 		return unit;
 	}
-
 	public void setUnit(Statunit unit) {
 		this.unit = unit;
 	}
-
 	public double getWeight() {
 		return weight;
 	}
-
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-
 	public double getHeight() {
 		return height;
 	}
-
 	public void setHeight(double height) {
 		this.height = height;
 	}
-
 	public int getAge() {
 		return age;
 	}
-
 	public void setAge(int age) {
 		this.age = age;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -57,7 +43,6 @@ public class Stat {
 	protected double weight,height;
 	protected int age;
 	protected String name;
-
 	public void printinfo() {
 		System.out.println(name +" 사용자의 나이: " + age + " 신장(cm): "+ height + " 몸무게(kg): "+ weight);
 		System.out.println("기초 대사량: " +(66.47+(13.75*weight) +5*height-(6.76*age)));
