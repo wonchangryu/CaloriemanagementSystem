@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import test.Stat;
 import test.StatAmeric;
+import test.Statunit;
 
 public class CalorieManager {
 	Scanner input;
@@ -19,13 +20,13 @@ public class CalorieManager {
 			System.out.println("Select unit between 1 and 2:");
 			unit = input.nextInt();
 			if (unit==1) {
-				stat = new Stat();
+				stat = new Stat(Statunit.Kor);
 				stat.getUserInput(input);
 				stats.add(stat);
 				break;
 			}
 			else if(unit==2) {
-				StatAmeric s=new StatAmeric();
+				StatAmeric s=new StatAmeric(Statunit.Americ);
 				System.out.println("1 나는 내 pound와 feet단위를 모릅니다");
 				System.out.println("2 나는 내 pound와 feet단위를 압니다");
 				System.out.println("Select unit between 1 and 2:");

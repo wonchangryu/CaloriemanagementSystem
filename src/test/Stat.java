@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class Stat {
 	public Stat() {
 	}
+	public Stat(Statunit unit){
+		this.unit = unit;
+	}
 	public Stat(String name,int age,double height ,double weight) {
 		this.name = name;
 		this.weight=weight;
@@ -46,7 +49,7 @@ public class Stat {
 	public void setName(String name) {
 		this.name = name;
 	}
-	protected Statunit unit=Statunit.Kor;
+	protected Statunit unit;
 	protected double weight,height;
 	protected int age;
 	protected String name;

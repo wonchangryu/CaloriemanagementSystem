@@ -3,6 +3,9 @@ package test;
 import java.util.Scanner;
 
 public class StatAmeric extends Stat {
+	public StatAmeric(Statunit unit){
+		this.unit = unit;
+	}
 	public void getUserInput(Scanner input) {
 		System.out.println("사용자의 이름:");
 		String name=input.next();
