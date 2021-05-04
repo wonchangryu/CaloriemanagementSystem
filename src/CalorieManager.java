@@ -25,9 +25,19 @@ public class CalorieManager {
 				break;
 			}
 			else if(unit==2) {
-				stat = new StatAmeric();
-				stat.getUserInput(input);
-				stats.add(stat);
+				StatAmeric s=new StatAmeric();
+				System.out.println("1 나는 내 pound와 feet단위를 모릅니다");
+				System.out.println("2 나는 내 pound와 feet단위를 압니다");
+				System.out.println("Select unit between 1 and 2:");
+				int num=input.nextInt();
+				if(num==1) {
+				s.getUserInput(input);
+				stats.add(s);
+				}
+				else if(num==2) {
+					s.getUserInput2(input);
+					stats.add(s);
+				}
 				break;
 			}
 			else {
@@ -148,7 +158,6 @@ public class CalorieManager {
 			stats.get(i).printinfo();
 		}
 	}
-	
 	public static void diet() {
 		System.out.println("1.몬스터와퍼세트");
 		System.out.println("2.짜장면 +탕수육");
