@@ -91,6 +91,10 @@ public abstract class Stat implements UserInput{
 			}
 			catch (HeightException e) {
 				System.out.println("Input data is nonsense");
+				if(input.hasNext()) {
+					height=0;
+				}
+				
 			}
 		}
 		System.out.println("¸ö¹«°Ô(kg):");

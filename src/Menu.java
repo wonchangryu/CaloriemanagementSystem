@@ -2,10 +2,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
-
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-
 		CalorieManager caloriemanager = new CalorieManager(input);
 		selectMenu(input,caloriemanager);
 	}
@@ -32,7 +30,7 @@ public class Menu {
 			}
 			}
 			catch(InputMismatchException e) {
-				System.out.println("Select one number between 1-5: ");
+				System.out.println("Error! Select one number between 1-5: ");
 				if(input.hasNext()) {
 					input.next();
 				}
