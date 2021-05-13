@@ -10,4 +10,6 @@ public interface UserInput {
 	public void setHeight(double height);
 	public void setWeight(double weight);
 	public Statunit getUnit();
+	public void setKor(Scanner input);
+	public void setAmeric(Scanner input);
 }
