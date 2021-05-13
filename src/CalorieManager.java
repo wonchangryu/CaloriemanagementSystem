@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import test.Stat;
@@ -17,19 +18,28 @@ public class CalorieManager {
 		int unit=0;
 		UserInput statInput;
 		while(unit !=1 && unit != 2) {
-			show();
-			unit = input.nextInt();
-			if (unit==1) {
-				statInput = new StatKor(Statunit.Kor);
-				statInput.getUserInput(input);
-				stats.add(statInput);
+			try {
+				show();
+				unit = input.nextInt();
+				if (unit==1) {
+					statInput = new StatKor(Statunit.Kor);
+					statInput.getUserInput(input);
+					stats.add(statInput);
+				}
+				else if(unit==2) {
+					statInput =new StatAmeric(Statunit.Americ);
+					statInput.getUserInput(input);
+					stats.add(statInput);
+				}
+				food();
 			}
-			else if(unit==2) {
-				statInput =new StatAmeric(Statunit.Americ);
-				statInput.getUserInput(input);
-				stats.add(statInput);
+			catch(InputMismatchException e) {
+				System.out.println("Select one number between 1-5: ");
+				if(input.hasNext()) {
+					input.next();
+				}
+				unit=-1;
 			}
-			food();
 		}
 	}
 	public void show() {

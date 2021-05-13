@@ -1,13 +1,18 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Calorie {
+public class Menu {
 
 	public static void main(String[] args) {
-		int num = 0;
 		Scanner input = new Scanner(System.in);
+
 		CalorieManager caloriemanager = new CalorieManager(input);
+		selectMenu(input,caloriemanager);
+	}
+	public static void selectMenu(Scanner input,CalorieManager caloriemanager) {
+		int num = 0;
 		while(num != 5) { 
-			ShowMenu();
+			try{ShowMenu();
 			num = input.nextInt();
 			switch(num) {
 			case 1:
@@ -25,7 +30,16 @@ public class Calorie {
 			default:
 				continue;
 			}
+			}
+			catch(InputMismatchException e) {
+				System.out.println("Select one number between 1-5: ");
+				if(input.hasNext()) {
+					input.next();
+				}
+				num=-1;
+			}
 		}
+
 	}
 	public static void ShowMenu() {
 		System.out.println("*** Calorie management System Menu ***");

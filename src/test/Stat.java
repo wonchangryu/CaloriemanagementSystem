@@ -1,8 +1,10 @@
 package test;
 import java.util.Scanner;
+
+import Exception.HeightException;
 public abstract class Stat implements UserInput{
 	public Stat() {
-		
+
 	}
 	public Stat(Statunit unit){
 		this.unit = unit;
@@ -35,7 +37,10 @@ public abstract class Stat implements UserInput{
 	public double getHeight() {
 		return height;
 	}
-	public void setHeight(double height) {
+	public void setHeight(double height) throws HeightException {
+		if(height<=0 || height>=250.0) {
+			throw new HeightException(); 
+		}
 		this.height = height;
 	}
 	public int getAge() {
@@ -50,7 +55,7 @@ public abstract class Stat implements UserInput{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	protected Statunit unit;
 	protected double weight,height;
 	protected int age;
@@ -59,20 +64,36 @@ public abstract class Stat implements UserInput{
 	public abstract void printinfo();
 	public void setAmeric(Scanner input) {
 		this.unit=Statunit.Americ;
+		double height=0;
 		System.out.println("脚厘(cm):");
-		double height=input.nextDouble();
-		this.setHeight(height*0.0328);
+		while(!(height>=67.08 && height<=250)) {
+			height=input.nextDouble();
+			try {
+				this.setHeight(height*0.0328);
+			} catch (HeightException e) {
+				System.out.println("The input data is nonsense");
+			}
+		}
 		System.out.println("个公霸(kg):");
 		double weight=input.nextDouble();
 		this.setWeight(weight*2.204);
+
 		System.out.println(" height(feet)= "+ height*0.0328 + " weight(lb)= "+weight*2.204);
 	}
 	public void setKor(Scanner input) {
 		this.unit=Statunit.Kor;
-		System.out.println("脚厘:");
-		double height=input.nextDouble();
-		this.setHeight(height);
-		System.out.println("个公霸:");
+		double height=0;
+		System.out.println("脚厘(cm):");
+		while(!(height>=67.08 && height<=250)){
+			height=input.nextDouble();
+			try {
+				this.setHeight(height);
+			}
+			catch (HeightException e) {
+				System.out.println("Input data is nonsense");
+			}
+		}
+		System.out.println("个公霸(kg):");
 		double weight=input.nextDouble();
 		this.setWeight(weight);
 		System.out.println(" height(cm)= "+ height + " weight(kg)= "+weight);
@@ -102,5 +123,5 @@ public abstract class Stat implements UserInput{
 		int age=input.nextInt();
 		this.setAge(age);
 	}
-	
+
 }
