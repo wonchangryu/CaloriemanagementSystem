@@ -60,7 +60,6 @@ public abstract class Stat implements UserInput{
 	protected double weight,height;
 	protected int age;
 	protected String name;
-	protected String gender;
 	public abstract void printinfo();
 	public void setAmeric(Scanner input) {
 		this.unit=Statunit.Americ;
