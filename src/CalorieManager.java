@@ -1,20 +1,28 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Log.EventLogger;
 import test.Stat;
 import test.StatAmeric;
 import test.StatKor;
 import test.Statunit;
 import test.UserInput;
 
-public class CalorieManager {
-	Scanner input;
+public class CalorieManager implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3412871442774617471L;
+	
+	transient Scanner input;
 	ArrayList<UserInput> stats=new ArrayList<UserInput>();
 	CalorieManager(Scanner input){
 		this.input = input;
 	}
-	public void addcalorie() {
+	public void addusers() {
 		int unit=0;
 		UserInput statInput;
 		while(unit !=1 && unit != 2) {
@@ -34,7 +42,7 @@ public class CalorieManager {
 				food();
 			}
 			catch(InputMismatchException e) {
-				System.out.println("Select one number between 1-5: ");
+				System.out.println("Error! Select one number between 1-5: ");
 				if(input.hasNext()) {
 					input.next();
 				}

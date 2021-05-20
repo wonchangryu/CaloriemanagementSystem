@@ -1,8 +1,13 @@
 package test;
+import java.io.Serializable;
 import java.util.Scanner;
 
 import Exception.HeightException;
-public abstract class Stat implements UserInput{
+public abstract class Stat implements UserInput, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -25193803099043263L;
 	public Stat() {
 
 	}
@@ -126,5 +131,4 @@ public abstract class Stat implements UserInput{
 		int age=input.nextInt();
 		this.setAge(age);
 	}
-
 }

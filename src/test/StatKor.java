@@ -19,3 +19,4 @@ public class StatKor extends Stat {
 		 getUnitString();
 	}
 }
+	
