@@ -3,8 +3,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import Log.EventLogger;
-import test.Stat;
 import test.StatAmeric;
 import test.StatKor;
 import test.Statunit;

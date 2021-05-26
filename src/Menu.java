@@ -13,7 +13,7 @@ public class Menu {
 	static EventLogger logger = new EventLogger("log.txt");
 
 	public static void main(String[] args) {
-		
+
 		Scanner input = new Scanner(System.in);
 		CalorieManager caloriemanager = getObject("caloriemanager.ser"); 
 		if(caloriemanager==null) {
@@ -60,8 +60,8 @@ public class Menu {
 	}
 	public static void ShowMenu() {
 		System.out.println("*** Calorie management System Menu ***");
-		System.out.println("1.Add calorie ");
-		System.out.println("2.Delete calorie");
+		System.out.println("1.Add users ");
+		System.out.println("2.Delete users");
 		System.out.println("3.Edit user");
 		System.out.println("4.View users");
 		System.out.println("5.Exit");
@@ -87,13 +87,13 @@ public class Menu {
 		}
 		return caloriemanager;
 	}
-	
+
 	public static void putObject(CalorieManager caloriemanager,String filename) {
 		try {
 			FileOutputStream file = new FileOutputStream(filename);
 			ObjectOutputStream out=new ObjectOutputStream(file);
 			out.writeObject(caloriemanager);
-			
+
 			out.close();
 			file.close();
 		} catch (FileNotFoundException e) {
