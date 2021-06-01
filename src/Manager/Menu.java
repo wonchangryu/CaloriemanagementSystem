@@ -1,3 +1,4 @@
+package Manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import GUI.Windowframe;
 import Log.EventLogger;
 
 public class Menu {
@@ -19,6 +21,8 @@ public class Menu {
 		if(caloriemanager==null) {
 			caloriemanager=new CalorieManager(input); 
 		}
+		
+		Windowframe frame = new Windowframe(caloriemanager); 
 		selectMenu(input,caloriemanager);
 		putObject(caloriemanager,"caloriemanager.ser");
 	}

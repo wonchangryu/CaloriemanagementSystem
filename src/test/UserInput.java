@@ -7,6 +7,9 @@ import Exception.HeightException;
 public interface UserInput {
 	public void getUserInput(Scanner input);
 	public String getName();
+	public int getAge();
+	public double getHeight();
+	public double getWeight();
 	public void printinfo();
 	public void setName(String name);
 	public void setHeight(double height) throws HeightException ;

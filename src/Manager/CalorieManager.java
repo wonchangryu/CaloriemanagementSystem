@@ -1,8 +1,10 @@
+package Manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import test.Stat;
 import test.StatAmeric;
 import test.StatKor;
 import test.Statunit;
@@ -10,11 +12,12 @@ import test.UserInput;
 
 public class CalorieManager implements Serializable {
 	
+
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3412871442774617471L;
-	
+	private static final long serialVersionUID = -6260178943990172816L;
 	transient Scanner input;
 	ArrayList<UserInput> stats=new ArrayList<UserInput>();
 	CalorieManager(Scanner input){
@@ -107,6 +110,14 @@ public class CalorieManager implements Serializable {
 		for(int i=0; i<stats.size(); i++) {
 			stats.get(i).printinfo();
 		}
+	}
+	
+	public int size() {
+		return stats.size(); 
+	}
+	
+	public UserInput get(int index) {
+		return stats.get(index);
 	}
 
 	public void diet() {
