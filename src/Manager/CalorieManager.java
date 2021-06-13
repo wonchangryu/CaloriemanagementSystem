@@ -23,6 +23,17 @@ public class CalorieManager implements Serializable {
 	CalorieManager(Scanner input){
 		this.input = input;
 	}
+	
+	public void addusers(String Name,String age,String height, String weight) {
+		UserInput statInput = new StatKor(Statunit.Kor);
+		statInput.getUserInput(input);
+		stats.add(statInput);
+	}
+	
+	public void addusers(UserInput userinput) {
+		stats.add(userinput);
+	}
+	
 	public void addusers() {
 		int unit=0;
 		UserInput statInput;

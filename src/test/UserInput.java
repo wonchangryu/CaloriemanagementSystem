@@ -17,4 +17,5 @@ public interface UserInput {
 	public Statunit getUnit();
 	public void setKor(Scanner input);
 	public void setAmeric(Scanner input);
+	public void setAge(int parseInt);
 }

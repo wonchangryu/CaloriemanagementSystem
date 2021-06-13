@@ -6,11 +6,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import Listener.UseraddercancelListener;
+import Listener.Useradderlistener;
+import Manager.CalorieManager;
+
 public class UserAdder extends JPanel {
 	
 	Windowframe frame;
+	CalorieManager caloriemanager;
 	
-	public UserAdder(Windowframe frame) {
+	public UserAdder(Windowframe frame, CalorieManager caloriemanager) {
 		this.frame=frame;
 		JPanel p = new JPanel();
 		p.setLayout(new SpringLayout());
@@ -39,8 +44,12 @@ public class UserAdder extends JPanel {
 		p.add(weight);
 		p.add(fieldweight);
 		
-		p.add(new JButton("save"));
-		p.add(new JButton("cancel"));
+		JButton savebutton =new JButton("save");
+		savebutton.addActionListener(new Useradderlistener(fieldname,fieldage,fieldheight,fieldweight,caloriemanager));
+		JButton cancelbutton =new JButton("cancel");
+		cancelbutton.addActionListener(new UseraddercancelListener(frame));
+		p.add(savebutton);
+		p.add(cancelbutton);
 		
 		SpringUtilities.makeCompactGrid(p,5,2,6,6,6,6);
 		

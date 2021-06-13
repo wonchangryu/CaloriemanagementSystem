@@ -19,13 +19,11 @@ public class Windowframe extends JFrame {
 		
 		this.caloriemanager=caloriemanager;
 		menuselection =new MenuSelection(this);
-		useradder=new UserAdder(this);
+		useradder=new UserAdder(this, this.caloriemanager);
 		userviewer=new UserViewer(this,this.caloriemanager);
 		
 		this.setupPanel(menuselection);
 		this.setVisible(true);
-		
-		
 		
 	}
 
